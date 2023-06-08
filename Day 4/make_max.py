@@ -22,3 +22,10 @@ def solution(numbers):
 '''
 아... 왜 이생각을 못했지ㅜㅜ
 '''
+
+# 다른이 풀이2
+def solution(numbers):
+    return sorted(numbers)[-1] * sorted(numbers)[-2]
+'''
+자매품...ㅎㅎ
+'''

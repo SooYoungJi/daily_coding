@@ -22,7 +22,7 @@ def solution(my_string):
 def solution(my_string):
     return my_string.swapcase()
 '''
-이런 함수가 있었냐고,,,
+이런 함수가 있었냐고,,,(울컥)
 '''
 
 # 다른이 풀이(...라 쓰고 한줄코딩이라 읽는ㄷr...)

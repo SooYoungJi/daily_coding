@@ -66,3 +66,4 @@ def solution(keyinput, board):
 '''
 dictionary를 사용한 부분과 dx, dy에 move[k]로 지정한게 똑똑했다!
 '''
+

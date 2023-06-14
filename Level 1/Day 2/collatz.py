@@ -14,8 +14,8 @@
 def solution(num):
     answer = 0
     if num == 1:
-        return 1
-    while answer <= 500:
+        return 0
+    while answer < 500:
         if num == 1:
             return answer
         if num % 2 == 0:
@@ -26,6 +26,21 @@ def solution(num):
         answer += 1
         
     return -1
+
+# 다른이 풀이
+def collatz(num):
+    answer = 0
+    while num!=1:
+        if num%2==0:
+            num=num/2
+        else:
+            num=3*num+1
+        answer=answer+1
+
+        if answer>=500:
+            return -1
+
+    return answer
 '''
-Test case 하나 틀림
+이런 방법도 있다우~
 '''

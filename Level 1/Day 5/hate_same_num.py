@@ -9,3 +9,27 @@ arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.
 arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
 배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
 '''
+
+# 내 풀이
+def solution(arr):
+    answer = []
+    for i in arr:
+        if len(answer) == 0 or i != answer[-1]:
+            answer.append(i)
+    return answer
+'''
+헿 사람들이 좋아하는 코드 중 하나로 똑같이 풀었당ㅎㅎ
+'''
+
+
+# 다른이 풀이
+def no_continuous(s):
+    # 함수를 완성하세요
+    a = []
+    for i in s:
+        if a[-1:] == [i]: continue
+        a.append(i)
+    return a
+'''
+a[-1:]은 빈 배열에 써도 가능!
+'''

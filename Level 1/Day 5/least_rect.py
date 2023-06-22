@@ -18,3 +18,24 @@
 모든 명함의 가로 길이와 세로 길이를 나타내는 2차원 배열 sizes가 매개변수로 주어집니다. 
 모든 명함을 수납할 수 있는 가장 작은 지갑을 만들 때, 지갑의 크기를 return 하도록 solution 함수를 완성해주세요.
 '''
+
+# 내 풀이
+def solution(sizes):
+    max_sizes = [max(i) for i in sizes]
+    min_sizes = [min(i) for i in sizes]
+    return max(max_sizes) * max(min_sizes)
+
+'''
+사실 도저히 풀이법이 내 안에서 나오지 않아서 힌트를 봤담..ㅎㅎ
+'''
+
+# 다른이 풀이
+def solution(sizes):
+    row = 0
+    col = 0
+    for a, b in sizes:
+        if a < b:
+            a, b = b, a
+        row = max(row, a)
+        col = max(col, b)
+    return row * col

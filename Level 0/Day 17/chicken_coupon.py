@@ -19,13 +19,6 @@ def solution(chicken):
 '''
 
 # 다른이 풀이1
-
-2
-3
-4
-5
-6
-7
 def solution(chicken):
     answer = 0
     while(chicken>=10):

@@ -17,3 +17,35 @@ Single(S), Double(D), Triple(T)은 점수마다 하나씩 존재한다.
 스타상(*), 아차상(#)은 점수마다 둘 중 하나만 존재할 수 있으며, 존재하지 않을 수도 있다.
 0~10의 정수와 문자 S, D, T, *, #로 구성된 문자열이 입력될 시 총점수를 반환하는 함수를 작성하라.
 '''
+
+# 내 풀이
+def solution(dartResult):
+    answer = [0, 0, 0]
+    dR = list(dartResult)
+    sdt = ['S', 'D', 'T']
+    idx = -1
+    now = 0
+    for i in range(len(dR)):
+        if i+1<len(dR) and dR[i]=='1' and dR[i+1]=='0':
+            now = 10
+            idx += 1
+        elif now != 10 and dR[i].isdigit():
+            now = int(dR[i])
+            idx += 1
+        elif dR[i] in sdt:
+            now **= (sdt.index(dR[i])+1)
+            answer[idx] = now
+            now = 0
+        else:
+            if dR[i] == '*':
+                answer[idx] *= 2
+                if idx > 0: 
+                    answer[idx-1] *= 2
+            elif dR[i] == '#':
+                answer[idx] *= -1
+    return sum(answer)
+'''
+테케 하나 안풀렸다 조금 고치니까 풀린다...
+어쩐지 찝찝한 코드이긴해...
+'''
+

@@ -49,3 +49,51 @@ def solution(dartResult):
 어쩐지 찝찝한 코드이긴해...
 '''
 
+# 다른이 풀이
+import re
+
+def solution(dartResult):
+    bonus = {'S' : 1, 'D' : 2, 'T' : 3}
+    option = {'' : 1, '*' : 2, '#' : -1}
+    p = re.compile('(\d+)([SDT])([*#]?)')
+    dart = p.findall(dartResult)
+    for i in range(len(dart)):
+        if dart[i][2] == '*' and i > 0:
+            dart[i-1] *= 2
+        dart[i] = int(dart[i][0]) ** bonus[dart[i][1]] * option[dart[i][2]]
+
+    answer = sum(dart)
+    return answer
+'''
+정규표현식 사용!
+미리미리 익혀놔야지!
+'''
+
+# 다른이 풀이
+def solution(dartResult):
+    point = []
+    answer = []
+    dartResult = dartResult.replace('10','k')
+    point = ['10' if i == 'k' else i for i in dartResult]
+    print(point)
+
+    i = -1
+    sdt = ['S', 'D', 'T']
+    for j in point:
+        if j in sdt :
+            answer[i] = answer[i] ** (sdt.index(j)+1)
+        elif j == '*':
+            answer[i] = answer[i] * 2
+            if i != 0 :
+                answer[i - 1] = answer[i - 1] * 2
+        elif j == '#':
+            answer[i] = answer[i] * (-1)
+        else:
+            answer.append(int(j))
+            i += 1
+    return sum(answer)
+'''
+10을 처리하는 방식이 너무 깔끔하당ㅎㅎ
+문자열 처리 및 계산 방식이 나와 크게 다르진 않지만 
+순서를 어떻게 배열하느냐에 따라 코드가 더 깔끔해질 수 있는지 알게 되었다!
+'''

@@ -39,3 +39,45 @@ def solution(X, Y):
         return '0'
     else:
         return ''.join(answer)
+    
+'''
+왜 계속 일부 테케에서 런타임 에러가 나는지 모르겠네ㅜ
+'''
+# 내 풀이 (최종)
+def solution(X, Y):
+    answer = []
+    for i in set(list(X)):
+        if i in Y:
+            temp = min(X.count(i), Y.count(i))
+            for j in range(temp):
+                answer.append(i)
+    answer.sort(reverse=True)
+    if len(answer) == 0:
+        return '-1'
+    elif answer.count('0') == len(answer) :
+        return '0'
+    else:
+        return ''.join(answer)
+    
+'''
+힌트보고 풀었지만ㅎㅎ
+'''
+
+# 다른이 풀이
+def solution(X, Y):
+    answer = ''
+
+    for i in range(9,-1,-1) :
+        answer += (str(i) * min(X.count(str(i)), Y.count(str(i))))
+
+    if answer == '' :
+        return '-1'
+    elif len(answer) == answer.count('0'):
+        return '0'
+    else :
+        return answer
+    
+'''
+애초에 9부터 0까지 count를 하면 되는구나!
+그래두 마지막에 00걸러내는건 방법이 같아서 뿌듯!ㅎㅎ
+'''

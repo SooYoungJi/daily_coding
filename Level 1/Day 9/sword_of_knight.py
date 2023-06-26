@@ -15,3 +15,37 @@
 제한수치를 초과한 기사가 사용할 무기의 공격력을 나타내는 정수 power가 주어졌을 때, 
 무기점의 주인이 무기를 모두 만들기 위해 필요한 철의 무게를 return 하는 solution 함수를 완성하시오.
 '''
+
+# 내 풀이
+def solution(number, limit, power):
+    weapon = []
+    for i in range(1, number+1):
+        temp = 0
+        for j in range(1, int(i**(1/2)) + 1):
+            if j * j == i:
+                temp += 1
+            elif i % j == 0:
+                temp += 2
+        if temp <= limit: 
+            weapon.append(temp)
+        else:
+            weapon.append(power)
+    return sum(weapon)
+'''
+드디어 약수 구할때 왜 제곱근으로 사용하는지 알았다!
+'''
+
+# 다른이 풀이
+def cf(n): # 공약수 출력
+    a = []
+    for i in range(1,int(n**0.5)+1):
+        if n%i == 0:
+            a.append(n//i)
+            a.append(i)
+    return len(set(a))
+def solution(number, limit, power):
+    return sum([cf(i) if cf(i)<=limit else power for i in range(1,number+1)])
+
+'''
+굳이 더 좋은 코드인지믐 모르겠지만! 일단 이런 방법도 참고!
+'''

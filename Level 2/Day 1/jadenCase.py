@@ -21,3 +21,11 @@ def solution(s):
 '''
 공백이 여러개일때를 고려하지 못함
 '''
+
+# 다른이 풀이
+def Jaden_Case(s):
+    # 함수를 완성하세요
+    return s.title()
+'''
+...?
+'''

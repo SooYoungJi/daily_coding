@@ -25,3 +25,28 @@ def solution(brown, yellow):
 '''
 최대 range를 제곱근으로 만든 내 자신이 조금 뿌듯ㅎㅎ
 '''
+
+# 다른이 풀이
+def solution(brown, yellow):
+    w = (brown / 2) + 1
+    h = 1
+    while w >= h:
+        if (w - 2) * (h - 2) == yellow:
+            return [w, h]
+        w -= 1
+        h += 1
+
+'''
+왕 이방식 좀 신박ㅎㅎ
+'''
+
+# 다른이 풀이
+def solution(brown, red):
+    for i in range(1, int(red**(1/2))+1):
+        if red % i == 0:
+            if 2*(i + red//i) == brown-4:
+                return [red//i+2, i+2]
+'''
+둘레길이로 푸는 방법!
+이 방법도 신박ㅎㅎ
+'''

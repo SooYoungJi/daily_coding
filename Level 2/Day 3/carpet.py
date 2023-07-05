@@ -8,3 +8,20 @@ Leo는 집으로 돌아와서 아까 본 카펫의 노란색과 갈색으로 색
 
 Leo가 본 카펫에서 갈색 격자의 수 brown, 노란색 격자의 수 yellow가 매개변수로 주어질 때 카펫의 가로, 세로 크기를 순서대로 배열에 담아 return 하도록 solution 함수를 작성해주세요.
 '''
+
+# 내 풀이
+def solution(brown, yellow):
+    answer = []
+    total = yellow + brown
+    for i in range(3, int(total**0.5)+1):
+        if total % i == 0:
+            long = max(i, total/i)
+            short = min(i, total/i)
+            if (long - 2)*(short - 2) == yellow:
+                answer.append(long)
+                answer.append(short)
+                return answer
+    return answer
+'''
+최대 range를 제곱근으로 만든 내 자신이 조금 뿌듯ㅎㅎ
+'''

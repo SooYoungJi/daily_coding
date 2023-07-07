@@ -39,3 +39,13 @@ if abs(a-b) == 1:
 '''
 
 # 다른이 풀이
+def solution(n,a,b):
+    answer = 0
+    while a != b:
+        answer += 1
+        a, b = (a+1)//2, (b+1)//2
+
+    return answer
+'''
+뭔가 의미는 나랑 비슷한데 조금 더 간단한 코드!
+'''
